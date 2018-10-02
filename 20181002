@@ -1,8 +1,35 @@
-Traceback (most recent call last):
+#!/usr/bin/env python
+#coding=utf-8
+
+# radius = 20 # radius is now 20
+# Prompt the user to enter a radius
+radius = input("Enter a number for radius: ")
+
+# Compute area
+area = radius * radius * 3.14159
+
+# Display results
+print ("The area for the circle of radius", radius, "is", area)
+
+
+-->Traceback (most recent call last):
   File "abc.py", line 9, in <module>
     area = radius * radius * 3.14159
 TypeError: can't multiply sequence by non-int of type 'str'
 
-#須加eval()將整數轉為浮點數
+#須在input()前加入eval()將整數轉為浮點數
 ------------------------------------------------------------------------------------------------------------------------------------------
+import string
 
+s = string.ascii_lowercase # a-z
+s += '_'
+d = {}
+for c in range(len(s)):
+	d[s[(c*4 + 15)%27]] = s[c]
+ciphertext = 'ifpmluglesecdlqp_rclfrseljpkq'
+s1 = ''
+for x in cr:
+	s1 += d[x]
+print s1
+
+-->flag_is_every_haxor_love_math
