@@ -206,4 +206,15 @@ MD5(test.txt)= 3d:17:c3:54:ad:02:61:52:64:26:6a:6b:b3:81:9b:8b
 --->驗證檔案的md5 hash
 md5sum test.txt
 3d17c354ad02615264266a6bb3819b8b  test.txt
+-----py2
+>>> import hashlib #導入hashlib函數庫
+#http://funhacks.net/explore-python/Standard-Modules/hashlib.html
+>>> a='123456789'#建立字串a
+>>> print hashlib.md5(a)#顯示a的md5
+<md5 HASH object @ 0x7f4cde7fe710>
+>>> print hashlib.md5(a).hexdigest()#轉為16進位
+25f9e794323b453885f5181f1b624d0b
+>>> print hashlib.sha1(a).hexdigest()#顯示a的sha1並轉為16進位
+f7c3bc1d808e04732adf679965ccc34ca7ae3441
+
 
