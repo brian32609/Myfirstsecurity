@@ -195,4 +195,15 @@ enter des-ede3-cbc decryption password:(apolo)
 --->檢察解密後的檔案
 cat file
 123456789
+---------------------------------------------------------
+計算與驗證檔案的md5 hash
+echo 'HappyHackingHigh'>test.txt
+
+--->計算檔案的的md5 hash
+openssl dgst -md5 -c test.txt
+MD5(test.txt)= 3d:17:c3:54:ad:02:61:52:64:26:6a:6b:b3:81:9b:8b
+
+--->驗證檔案的md5 hash
+md5sum test.txt
+3d17c354ad02615264266a6bb3819b8b  test.txt
 
