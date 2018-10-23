@@ -1,0 +1,71 @@
+Google Colaboratory
+---------------------------------------------------
+https://colab.research.google.com/drive/1SSflZkPnmLZwtKVefWixXjHj6a5Vk_p3#scrollTo=xHJtcyIzuvaX
+---------------------------------------------------
+先執行:
+import tensorflow as tf
+from tensorflow import keras
+
+#Helper libries
+import numpy as np
+import matplotlib.pyplot as plt
+
+print(tf.__version__)
+----------------------------------------------------
+#1
+#!/usr/bin/python3
+ 
+print("Hello, World!")
+----------------------------------------------------
+----------------------------------------------------
+rsa金鑰
+
+#產生1024bit長度的金鑰
+root@kali:~# openssl genrsa -out private.pem 1024
+Generating RSA private key, 1024 bit long modulus
+....................++++++
+..++++++
+e is 65537 (0x010001)
+
+#創一個file
+root@kali:~# echo hd dnw,jkjkddsjfkds > file
+root@kali:~# cat file
+hd dnw,jkjkddsjfkds
+
+#使用rsa私鑰產生對應私鑰
+root@kali:~# openssl rsa -in private.pem -out public.pem -outform PEM -pubout
+writing RSA key
+root@kali:~# cat public.pem 
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqTS5PzRHkpxRUMglmNuUisX6f
+7ibmYjqsHqhjF0zJWPnKDB6JDQwGybMzhmMmsTbMH4JYIgOv/YiF7i9byMm5gd+4
+ADwC2KTupBwlsU6xM6Q929VzB2G3J9uNrcWOeyI3wgwEuDPrHFGryTJS4IpU7t5n
+6ES0Esa5/KXPUUnMAQIDAQAB
+-----END PUBLIC KEY-----
+
+#使用公鑰加密檔案
+root@kali:~# openssl rsautl -encrypt -inkey public.pem -pubin -in file -out file.rsa
+root@kali:~# cat file.rsa 
+�	ܷ]�'3gxw�@��M��M��S�Р��)��uU��@l�F�i��
+8xȬ����f)���A_>��}0�vB9W��B��`��-;WX)6GZc�|!�8�<�N-|�ؒ���7Z7]��
+                                                 
+                                                 
+#使用私鑰解密檔案                                                 
+root@kali:~# openssl rsautl -decrypt -inkey private.pem -in file.rsa -out file.sol                                                 
+root@kali:~# cat file.sol 
+hd dnw,jkjkddsjfkds
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
